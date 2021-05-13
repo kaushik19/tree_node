@@ -1,5 +1,6 @@
-# Multi-Path Stories
 
+# Multi-Path Story Web-Application
+A web application which enables the user to write "multi-path stories." A multi-path story is composed of sentences. After each sentence, there are up to four possible next sentences, and after each of those, another four possible next sentences, and so on.
 Multi-Path story is a project written in nodeJs to implement tree like structure. We can traverse through any node.
 Without using any DB we can learn and play with tree structure using this project. 
 

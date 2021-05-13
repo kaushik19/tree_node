@@ -1,0 +1,88 @@
+doctype html
+html
+  head
+    meta(charset='UTF-8')
+    title multi-path stories
+    style(type='text/css').
+           .link {
+                border:none;
+                outline:none;
+                background:none;
+                cursor:pointer;
+                color:#0000EE;
+                padding:0;
+                text-decoration:underline;
+                font-family:inherit;
+                font-size:inherit;
+            }
+            table, th, td {
+                border:1px solid black;
+                min-width: 300px;
+                height: 40px;
+            }
+  body
+    a(href='/') Back to the start
+    table
+      tbody
+        tr
+          th
+          th
+            #container
+              if currentStory.PathA
+                form(action='/selectPath', method='post')
+                  input(type='hidden', name='option', value='A')
+                  button.link(type='submit') #{currentStory.PathA.text}
+              else
+                form(action='/submitStory', method='post')
+                  input(type='hidden', name='option', value='A')
+                  div
+                    textarea(name='string')
+                  div
+                    input#button(type='submit', value='Submit')
+          th
+        tr
+          th
+            #container
+              if currentStory.PathB
+                form(action='/selectPath', method='post')
+                  input(type='hidden', name='option', value='B')
+                  button.link(type='submit') #{currentStory.PathB.text}
+              else
+                form(action='/submitStory', method='post')
+                  input(type='hidden', name='option', value='B')
+                  div
+                    textarea(name='string')
+                  div
+                    input#button(type='submit', value='Submit')
+          th#middleTD
+            #middle
+              p #{currentStory.text}
+          th
+            #container
+              if currentStory.PathC
+                form(action='/selectPath', method='post')
+                  input(type='hidden', name='option', value='C')
+                  button.link(type='submit') #{currentStory.PathC.text}
+              else
+                form(action='/submitStory', method='post')
+                  input(type='hidden', name='option', value='C')
+                  div
+                    textarea(name='string')
+                  div
+                    input#button(type='submit', value='Submit')
+        tr
+          th
+          th
+            #container
+              if currentStory.PathD
+                form(action='/selectPath', method='post')
+                  input(type='hidden', name='option', value='D')
+                  button.link(type='submit') #{currentStory.PathD.text}
+              else
+                form(action='/submitStory', method='post')
+                  input(type='hidden', name='option', value='D')
+                  div
+                    textarea(name='string')
+                  div
+                    input#button(type='submit', value='Submit')
+          th
