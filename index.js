@@ -4,7 +4,7 @@ const {urlencoded, json} = require('body-parser');
 
 // View Page
 app.set('views', __dirname + '/views')
-app.set('view engine', 'jade');
+app.set('view engine', 'pug');
 
 app.use(urlencoded({ extended: false }));
 app.use(json());

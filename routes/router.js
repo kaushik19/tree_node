@@ -13,7 +13,7 @@ var currentStory;
 router.get('/', function (req, res) {
   if (!home) home = new Story("Once upon a time, there was a big bad wolf.")
   currentStory = home;
-  return res.render('layout', { currentStory: home });
+  return res.render('index', { currentStory: home });
 });
 
 /*
@@ -24,7 +24,7 @@ router.post('/submitStory', function (req, res) {
   const option = req.body.option;
   const newStory = new Story(string);
   currentStory.addPath(newStory, option);
-  return res.render('layout', { currentStory: currentStory });
+  return res.render('index', { currentStory: currentStory });
 });
 
 /*
@@ -33,7 +33,7 @@ router.post('/submitStory', function (req, res) {
 router.post('/selectPath', function (req, res) {
   const option = req.body.option;
   currentStory = currentStory.getPath(option);
-  return res.render('layout', { currentStory: currentStory });
+  return res.render('index', { currentStory: currentStory });
 });
 
 module.exports = router;
