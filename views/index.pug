@@ -29,11 +29,11 @@ html
           th
             #container
               if currentStory.PathA
-                form(action='/selectPath', method='post')
+                form(action='/path', method='post')
                   input(type='hidden', name='option', value='A')
                   button.link(type='submit') #{currentStory.PathA.text}
               else
-                form(action='/submitStory', method='post')
+                form(action='/story', method='post')
                   input(type='hidden', name='option', value='A')
                   div
                     textarea(name='string')
@@ -44,11 +44,11 @@ html
           th
             #container
               if currentStory.PathB
-                form(action='/selectPath', method='post')
+                form(action='/path', method='post')
                   input(type='hidden', name='option', value='B')
                   button.link(type='submit') #{currentStory.PathB.text}
               else
-                form(action='/submitStory', method='post')
+                form(action='/story', method='post')
                   input(type='hidden', name='option', value='B')
                   div
                     textarea(name='string')
@@ -60,11 +60,11 @@ html
           th
             #container
               if currentStory.PathC
-                form(action='/selectPath', method='post')
+                form(action='/path', method='post')
                   input(type='hidden', name='option', value='C')
                   button.link(type='submit') #{currentStory.PathC.text}
               else
-                form(action='/submitStory', method='post')
+                form(action='/story', method='post')
                   input(type='hidden', name='option', value='C')
                   div
                     textarea(name='string')
@@ -75,11 +75,11 @@ html
           th
             #container
               if currentStory.PathD
-                form(action='/selectPath', method='post')
+                form(action='/path', method='post')
                   input(type='hidden', name='option', value='D')
                   button.link(type='submit') #{currentStory.PathD.text}
               else
-                form(action='/submitStory', method='post')
+                form(action='/story', method='post')
                   input(type='hidden', name='option', value='D')
                   div
                     textarea(name='string')

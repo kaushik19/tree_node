@@ -7,19 +7,27 @@ const router = express.Router();
 var home;
 var currentStory;
 
+const defaultSetter = () => {
+  if (!home) home = new Story("Once upon a time, there was a big bad wolf.");
+  currentStory = home;
+};
+
 /**
  * Home Page
  */
 router.get('/', function (req, res) {
-  if (!home) home = new Story("Once upon a time, there was a big bad wolf.")
-  currentStory = home;
+  defaultSetter();
   return res.render('index', { currentStory: home });
 });
 
 /*
  * Add child into the node
 */
-router.post('/submitStory', function (req, res) {
+router.post('/story', function (req, res) {
+  if (!req.body || !req.body.string || !req.body.option || !currentStory) {
+    defaultSetter();
+    return res.render('index', { currentStory: home });    
+  }
   const string = req.body.string;
   const option = req.body.option;
   const newStory = new Story(string);
@@ -30,10 +38,16 @@ router.post('/submitStory', function (req, res) {
 /*
  * Get selected node and set it as center node
 */
-router.post('/selectPath', function (req, res) {
+router.post('/path', function (req, res) {
+  if (!req.body || !req.body.option || !currentStory) {
+    defaultSetter();
+    return res.render('index', { currentStory: home });    
+  }
   const option = req.body.option;
   currentStory = currentStory.getPath(option);
   return res.render('index', { currentStory: currentStory });
 });
+
+
 
 module.exports = router;

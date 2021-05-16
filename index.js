@@ -15,6 +15,10 @@ app.use(express.static(__dirname + '/public'));
 
 app.listen(5000, function(){
   console.log('Express app listening on port 5000');
-})
+});
+
+process.on('uncaughtException', err => {
+  console.error(err, 'Uncaught Exception thrown');
+});
 
 module.exports = app;
